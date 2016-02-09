@@ -20,7 +20,7 @@ defmodule Gutenex.Mixfile do
 
   defp deps do
     [
-      {:imagineer, "~> 0.1" },
+      {:imagineer, "~> 0.1.0" },
       {:apex, "~>0.3.0" },
       {:earmark, "~> 0.1", only: :dev},
       {:ex_doc, "~> 0.6", only: :dev }
