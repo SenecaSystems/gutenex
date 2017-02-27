@@ -1,5 +1,5 @@
 defmodule Gutenex.PDF.Font do
-  # Helpful PDF on fonts in PDFs: http://www.ntg.nl/eurotex/KacvinskyPDF.pdf
+  # Helpful PDF on fonts in PDFs: http://www.ntg.nl/EuroTeX/2001/KacvinskyPDF.pdf
 
   @default_font_size 12
   @default_font "Helvetica"

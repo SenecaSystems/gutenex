@@ -40,12 +40,12 @@ defmodule Gutenex.PDF.SerializationTest do
 
   test "#serialize with an :array" do
     assert Serialization.serialize({:array, [1, {:string, "Two"}, 3.0, {:date, {1776, 7, 4}}]}) ==
-           " [1, (Two) ,3.00, (D:17760704000000) ] "
+           " [1  (Two)  3.00  (D:17760704000000) ] "
   end
 
   test "#serialize with a :dict using a map" do
     assert Serialization.serialize({:dict, %{"Key" => "Value", "Numbers" => {:array, [1, 2, 3]}, "Nope" => nil}}) ==
-    "<</Key (Value)/Numbers [1,2,3]>>"
+    "<< /Key (Value)/Numbers [1 2 3] >>"
   end
 
   test "#serialize with a :ptr" do
@@ -65,7 +65,7 @@ defmodule Gutenex.PDF.SerializationTest do
   test "#serialize with a :stream with no options" do
     assert Serialization.serialize({:stream, "AHHHHHHHHHHHHHHHHHH"}) ==
            String.rstrip("""
-           <</Length 19>>
+           << /Length 19 >>
            stream
            AHHHHHHHHHHHHHHHHHH
            endstream
@@ -79,7 +79,7 @@ defmodule Gutenex.PDF.SerializationTest do
       "Info" => {:ptr, 5, 1}
     }}}) == """
     trailer
-    <</Info 5 1 R/Root 200 0 R/Size 200>>
+    << /Info 5 1 R/Root 200 0 R/Size 200 >>
     """
   end
 end
