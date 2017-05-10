@@ -2,9 +2,7 @@ defmodule Gutenex.PDF.Exporter do
   alias Gutenex.PDF.RenderContext
   alias Gutenex.PDF.Serialization
   # Declare the PDF version
-  @start_mark """
-  %PDF-1.7
-  """
+  @start_mark "%PDF-1.7\n"
   @end_mark "%%EOF\r\n"
 
   def export(%RenderContext{}=render_context) do
@@ -28,7 +26,7 @@ defmodule Gutenex.PDF.Exporter do
   end
 
   def cross_reference_table(serialized_objects) do
-    pdf_start_position = String.length(@start_mark)
+    pdf_start_position = byte_size(@start_mark)
     {xrefs, _acc} = :lists.mapfoldl &xref/2, pdf_start_position, serialized_objects
     """
     xref
@@ -38,8 +36,8 @@ defmodule Gutenex.PDF.Exporter do
   end
 
   def start_cross_reference(serialized_objects) do
-    total_length = Enum.reduce serialized_objects, String.length(@start_mark), fn (object, total) ->
-      String.length(object) + total
+    total_length = Enum.reduce serialized_objects, byte_size(@start_mark), fn (object, total) ->
+      byte_size(object) + total
     end
 
     """
@@ -49,7 +47,7 @@ defmodule Gutenex.PDF.Exporter do
   end
 
   def xref(serialized_objects, position) do
-    objects_length = String.length(serialized_objects)
+    objects_length = byte_size(serialized_objects)
     {xref1(position, "00000 n"), position + objects_length}
   end
 
