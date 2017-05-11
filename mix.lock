@@ -1,5 +1,4 @@
 %{"apex": {:hex, :apex, "0.3.7", "0e4b39ff34d740da9898e368995fdaab2fe4d2a444a6bbe23ccffb3c6978b92c", [:mix], []},
-  "earmark": {:hex, :earmark, "0.2.1", "ba6d26ceb16106d069b289df66751734802777a3cbb6787026dd800ffeb850f3", [:mix], []},
-  "erlguten": {:git, "git://github.com/SenecaSystems/erlguten.git", "c02b8fc57571615837b4b369cef3fecaa609436b", []},
-  "ex_doc": {:hex, :ex_doc, "0.11.5", "0dc51cb84f8312162a2313d6c71573a9afa332333d8a332bb12540861b9834db", [:mix], [{:earmark, "~> 0.1.17 or ~> 0.2", [hex: :earmark, optional: true]}]},
+  "earmark": {:hex, :earmark, "1.0.2", "a0b0904d74ecc14da8bd2e6e0248e1a409a2bc91aade75fcf428125603de3853", [:mix], []},
+  "ex_doc": {:hex, :ex_doc, "0.14.3", "e61cec6cf9731d7d23d254266ab06ac1decbb7651c3d1568402ec535d387b6f7", [:mix], [{:earmark, "~> 1.0", [hex: :earmark, optional: false]}]},
   "imagineer": {:hex, :imagineer, "0.2.1", "b426707d1c8326cab81ce4d3f5e029283776a7b806db9dbc51306eb2e1451aa6", [:mix], [{:apex, "~>0.3.2", [hex: :apex, optional: false]}]}}
